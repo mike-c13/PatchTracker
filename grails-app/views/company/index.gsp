@@ -19,7 +19,6 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:table collection="${companyList}" properties="['name', 'countryCode']"/>
-            <g:link controller="employee" action="create" params="${["company.id": "$companyList.id" ]}">Add</g:link>
             <div class="pagination">
                 <g:paginate total="${companyCount ?: 0}" />
             </div>

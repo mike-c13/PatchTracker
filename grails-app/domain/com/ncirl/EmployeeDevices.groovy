@@ -12,10 +12,10 @@ class EmployeeDevices {
 
     static constraints = {
         phone()
-        phone inList: ["iPhone", "Samsung", "Pixel"]
+        phone inList: ["iPhone", "Windows Phone", "Pixel"]
         phonePatch()
         laptop()
-        laptop inList: ["ASUS", "Macbook", "Toshiba"]
+        laptop inList: ["ASUS", "MacBook", "Toshiba"]
         os()
         os inList: ["Windows 10", "iOS", "Ubuntu"]
         laptopPatch()

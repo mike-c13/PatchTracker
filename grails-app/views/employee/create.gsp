@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page import="com.ncirl.Company" %>
+
 <html>
     <head>
         <meta name="layout" content="main" />
@@ -27,6 +29,9 @@
             </g:hasErrors>
             <g:form resource="${this.employee}" method="POST">
                 <fieldset class="form">
+                    <f:field bean="employee" property="company">
+                        <g:select name="company.id" from="${Company.list()}" optionKey="id" optionValue="name"/>
+                    </f:field>
                     <f:field bean="employee" property="name"/>
                     <f:field bean="employee" property="position"/>
                     <f:field bean="employee" property="email"/>

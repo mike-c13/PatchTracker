@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page import="com.ncirl.Company" %>
+
 <html>
     <head>
         <meta name="layout" content="main" />
@@ -29,12 +31,34 @@
             <g:form resource="${this.employee}" method="PUT">
                 <g:hiddenField name="version" value="${this.employee?.version}" />
                 <fieldset class="form">
-                    <f:all bean="employee"/>
+                    <f:field bean="employee" property="company">
+                        <g:select name="company.id" from="${Company.list()}" optionKey="id" optionValue="name"/>
+                    </f:field>
+                    <f:field bean="employee" property="name"/>
+                    <f:field bean="employee" property="position"/>
+                    <f:field bean="employee" property="email"/>
+                    <f:field bean="employee" property="employeeDevices.phone">
+                        <g:select name="employeeDevices.phone" from="${['iPhone', 'Samsung', 'Pixel']}"/>
+                    </f:field>
+                    <f:field bean="employee" property="employeeDevices.phonePatch" id="p"/>
+                    <f:field bean="employee" property="employeeDevices.laptop">
+                        <g:select name="employeeDevices.laptop" from="${['ASUS', 'Macbook', 'Toshiba']}"/>
+                    </f:field>
+                    <f:field bean="employee" property="employeeDevices.os">
+                        <g:select name="employeeDevices.os" from="${['Windows 10', 'iOS', 'Ubuntu']}"/>
+                    </f:field>
+                    <f:field bean="employee" property="employeeDevices.laptopPatch" id="l"/>
                 </fieldset>
+                <input type="button" id="p1" value="phone"/>
+                <input type="button" id="p2" value="laptop"/>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </fieldset>
             </g:form>
         </div>
+    <script type="text/javascript">
+    </script>
+
     </body>
 </html>
+

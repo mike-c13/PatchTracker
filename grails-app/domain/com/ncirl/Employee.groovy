@@ -14,7 +14,6 @@ class Employee {
         name()
         position()
         email()
-        company()
         email email: true
     }
 }
