@@ -1,5 +1,6 @@
 package com.ncirl
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -9,19 +10,23 @@ class EmployeeDevicesController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond employeeDevicesService.list(params), model:[employeeDevicesCount: employeeDevicesService.count()]
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def show(Long id) {
         respond employeeDevicesService.get(id)
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def create() {
         respond new EmployeeDevices(params)
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def save(EmployeeDevices employeeDevices) {
         if (employeeDevices == null) {
             notFound()
@@ -44,10 +49,12 @@ class EmployeeDevicesController {
         }
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def edit(Long id) {
         respond employeeDevicesService.get(id)
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def update(EmployeeDevices employeeDevices) {
         if (employeeDevices == null) {
             notFound()
@@ -70,6 +77,7 @@ class EmployeeDevicesController {
         }
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def delete(Long id) {
         if (id == null) {
             notFound()

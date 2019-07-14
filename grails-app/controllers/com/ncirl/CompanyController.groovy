@@ -1,5 +1,6 @@
 package com.ncirl
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -8,20 +9,20 @@ class CompanyController {
     CompanyService companyService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond companyService.list(params), model:[companyCount: companyService.count()]
     }
-
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def show(Long id) {
         respond companyService.get(id)
     }
-
+    @Secured(['ROLE_ADMIN'])
     def create() {
         respond new Company(params)
     }
-
+    @Secured(['ROLE_ADMIN'])
     def save(Company company) {
         if (company == null) {
             notFound()
@@ -43,11 +44,11 @@ class CompanyController {
             '*' { respond company, [status: CREATED] }
         }
     }
-
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         respond companyService.get(id)
     }
-
+    @Secured(['ROLE_ADMIN'])
     def update(Company company) {
         if (company == null) {
             notFound()
@@ -69,7 +70,7 @@ class CompanyController {
             '*'{ respond company, [status: OK] }
         }
     }
-
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         if (id == null) {
             notFound()

@@ -3,6 +3,9 @@ package mobilereg
 import com.ncirl.Company
 import com.ncirl.Employee
 import com.ncirl.EmployeeDevices
+import com.ncirl.Role
+import com.ncirl.User
+import com.ncirl.UserRole
 
 class BootStrap {
 
@@ -28,6 +31,32 @@ class BootStrap {
         new Employee(name: 'Gerry', email: 'gerry@microsoft.com', position: 'CTO', company: microsoft, employeeDevices: deviceConfig2).save(failOnError: true)
         new Employee(name: 'John', email: 'john@apple.com', position: 'CEO', company: apple, employeeDevices: deviceConfig3).save(failOnError: true)
         new Employee(name: 'Karen', email: 'karen@apple.com', position: 'CTO', company: apple, employeeDevices: deviceConfig3).save(failOnError: true)
+
+        def authorities = ['ROLE_USER']
+        authorities.each {
+            if ( !Role.findByAuthority(it) ) {
+                new Role(authority: it).save()
+            }
+        }
+        if ( !User.findByUsername('mike') ) {
+            def u = new User(username: 'mike', password: 'password')
+            u.save()
+            def ur = new UserRole(user: u, role: Role.findByAuthority('ROLE_USER'))
+            ur.save()
+        }
+
+        def authoritiesAdmin = ['ROLE_ADMIN']
+        authoritiesAdmin.each {
+            if ( !Role.findByAuthority(it) ) {
+                new Role(authority: it).save()
+            }
+        }
+        if ( !User.findByUsername('admin') ) {
+            def u = new User(username: 'admin', password: 'password')
+            u.save()
+            def ur = new UserRole(user: u, role: Role.findByAuthority('ROLE_ADMIN'))
+            ur.save()
+        }
     }
     def destroy = {
     }

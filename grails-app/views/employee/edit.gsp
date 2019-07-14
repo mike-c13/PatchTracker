@@ -56,9 +56,6 @@
                 </fieldset>
             </g:form>
         </div>
-    <script type="text/javascript">
-    </script>
-
     </body>
 </html>
 
