@@ -8,29 +8,6 @@
 //= require jquery-3.3.1.min
 //= require bootstrap
 //= require popper.min
+//= require bootstrap-datepicker.min
+//= require today
 //= require_self
-
-function dateSet() {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear().toString().substring(2, 4);
-
-    if(dd<10) {
-        dd = '0'+dd
-    }
-
-    if(mm<10) {
-        mm = '0'+mm
-    }
-    today =  dd + '/' + mm + '/' + yyyy;
-
-    $('#employeeDevices.phonePatch_day').val(dd);
-    $('#employeeDevices.phonePatch_month').val(mm);
-    $('#employeeDevices.phonePatch_year').val(yyyy);
-};
-
-$("#p1").click(function(){
-    dateSet();
-});
-

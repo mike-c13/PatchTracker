@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <%@ page import="com.ncirl.Company" %>
-
 <html>
     <head>
         <meta name="layout" content="main" />
@@ -36,16 +35,20 @@
                     <f:field bean="employee" property="position"/>
                     <f:field bean="employee" property="email"/>
                     <f:field bean="employee" property="employeeDevices.phone">
-                        <g:select name="employeeDevices.phone" from="${['iPhone', 'Samsung', 'Pixel']}"/>
+                        <g:select name="employeeDevices.phone" value="${value}" from="${['iPhone', 'Samsung', 'Pixel']}"/>
                     </f:field>
-                    <f:field bean="employee" property="employeeDevices.phonePatch"/>
+                    <f:field bean="employee" property="employeeDevices.phonePatch">
+                        <g:field name="employeeDevices.phonePatch" class="pick" type="text"/>
+                    </f:field>
                     <f:field bean="employee" property="employeeDevices.laptop">
-                        <g:select name="employeeDevices.laptop" from="${['ASUS', 'Macbook', 'Toshiba']}"/>
+                        <g:select name="employeeDevices.laptop" value="${value}" from="${['ASUS', 'Macbook', 'Toshiba']}"/>
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.os">
-                        <g:select name="employeeDevices.os" from="${['Windows 10', 'iOS', 'Ubuntu']}"/>
+                        <g:select name="employeeDevices.os" value="${value}" from="${['Windows 10', 'iOS', 'Ubuntu']}"/>
                     </f:field>
-                    <f:field bean="employee" property="employeeDevices.laptopPatch"/>
+                    <f:field bean="employee" property="employeeDevices.laptopPatch">
+                        <g:field name="employeeDevices.phonePatch" class="pick" type="text"/>
+                    </f:field>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

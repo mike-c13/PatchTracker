@@ -10,6 +10,7 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
     <asset:stylesheet src="application.css"/>
+    <asset:javascript src="application.js"/>
 
     <g:layoutHead/>
 </head>
@@ -27,7 +28,11 @@
             <g:pageProperty name="page.nav"/>
         </ul>
     </div>
-
+    <sec:ifLoggedIn>
+    <g:form controller="logout">
+        <g:submitButton name="logout" value="Logout" />
+    </g:form>
+    </sec:ifLoggedIn>
 </nav>
 
 <g:layoutBody/>

@@ -1,10 +1,14 @@
 package com.ncirl
 
+import grails.databinding.BindingFormat
+
 class EmployeeDevices {
 
     String phone
+    @BindingFormat('dd/MM/yyyy')
     Date phonePatch
     String laptop
+    @BindingFormat('dd/MM/yyyy')
     Date laptopPatch
     String os
 
@@ -12,7 +16,7 @@ class EmployeeDevices {
 
     static constraints = {
         phone()
-        phone inList: ["iPhone", "Windows Phone", "Pixel"]
+        phone inList: ["iPhone", "Samsung", "Pixel"]
         phonePatch()
         laptop()
         laptop inList: ["ASUS", "MacBook", "Toshiba"]

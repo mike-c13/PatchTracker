@@ -22,7 +22,7 @@ class BootStrap {
         def date2 = Date.parse(pattern, date2s)
 
         def deviceConfig1 = new EmployeeDevices(phone: 'Pixel', phonePatch: date1, laptop: 'ASUS', laptopPatch: date2, os: 'Ubuntu').save(failOnError: true)
-        def deviceConfig2 = new EmployeeDevices(phone: 'Windows Phone', phonePatch: date1, laptop: 'Toshiba', laptopPatch: date2, os: 'Windows 10').save(failOnError: true)
+        def deviceConfig2 = new EmployeeDevices(phone: 'Samsung', phonePatch: date1, laptop: 'Toshiba', laptopPatch: date2, os: 'Windows 10').save(failOnError: true)
         def deviceConfig3 = new EmployeeDevices(phone: 'iPhone', phonePatch: date1, laptop: 'MacBook', laptopPatch: date2, os: 'iOS').save(failOnError: true)
 
         new Employee(name: 'Dave', email: 'dave@google.com', position: 'CEO', company: google, employeeDevices: deviceConfig1).save(failOnError: true)

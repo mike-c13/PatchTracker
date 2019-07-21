@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <%@ page import="com.ncirl.Company" %>
-
 <html>
     <head>
         <meta name="layout" content="main" />
@@ -38,24 +37,35 @@
                     <f:field bean="employee" property="position"/>
                     <f:field bean="employee" property="email"/>
                     <f:field bean="employee" property="employeeDevices.phone">
-                        <g:select name="employeeDevices.phone" from="${['iPhone', 'Samsung', 'Pixel']}"/>
+                        <g:select name="employeeDevices.phone" value="${value}" from="${['iPhone', 'Samsung', 'Pixel']}"/>
                     </f:field>
-                    <f:field bean="employee" property="employeeDevices.phonePatch" id="p"/>
+                    <f:field bean="employee" property="employeeDevices.phonePatch">
+                        <g:field type="text" name="employeeDevices.phonePatch" id="updatePhone" value="${employee.employeeDevices.phonePatch.format('dd/MM/yyyy')}" class="pick"/>
+                        <button id="phoneButton" type="button" class="btn btn-success">Patch Phone!</button>
+                    </f:field>
+                    <div style="text-align:center;">
+                    </div>
                     <f:field bean="employee" property="employeeDevices.laptop">
-                        <g:select name="employeeDevices.laptop" from="${['ASUS', 'Macbook', 'Toshiba']}"/>
+                        <g:select name="employeeDevices.laptop" value="${value}" from="${['ASUS', 'Macbook', 'Toshiba']}"/>
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.os">
-                        <g:select name="employeeDevices.os" from="${['Windows 10', 'iOS', 'Ubuntu']}"/>
+                        <g:select name="employeeDevices.os" value="${value}" from="${['Windows 10', 'iOS', 'Ubuntu']}"/>
                     </f:field>
-                    <f:field bean="employee" property="employeeDevices.laptopPatch" id="l"/>
+                    <f:field bean="employee" property="employeeDevices.laptopPatch">
+                        <g:field type="text" name="employeeDevices.laptopPatch" id="updateLaptop" value="${employee.employeeDevices.laptopPatch.format('dd/MM/yyyy')}" class="pick"/>
+                        <button id="laptopButton" type="button" class="btn btn-success">Patch Laptop!</button>
+                    </f:field>
                 </fieldset>
-                <input type="button" id="p1" value="phone"/>
-                <input type="button" id="p2" value="laptop"/>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </fieldset>
             </g:form>
         </div>
     </body>
+<style>
+.btn{
+    float: right;
+}
+</style>
 </html>
 

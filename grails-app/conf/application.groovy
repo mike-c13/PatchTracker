@@ -1,5 +1,5 @@
 
-
+grails.databinding.dateFormats = ['dd/MM/yyyy']
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.ncirl.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.ncirl.UserRole'

@@ -24,10 +24,14 @@
             <f:display bean="employee" property="position"/><br>
             <f:display bean="employee" property="email"/><br>
             <f:display bean="employee" property="employeeDevices.phone"/><br>
-            <f:display bean="employee" property="employeeDevices.phonePatch"/><br>
+            <f:display bean="employee" property="employeeDevices.phonePatch">
+                <g:formatDate format="dd/MM/yyyy" date="${value}"/>
+            </f:display><br>
             <f:display bean="employee" property="employeeDevices.laptop"/><br>
             <f:display bean="employee" property="employeeDevices.os"/><br>
-            <f:display bean="employee" property="employeeDevices.laptopPatch"/>
+            <f:display bean="employee" property="employeeDevices.laptopPatch">
+                <g:formatDate format="dd/MM/yyyy" date="${value}"/>
+            </f:display>
             </ol>
             <g:form resource="${this.employee}" method="DELETE">
                 <fieldset class="buttons">
