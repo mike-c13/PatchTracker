@@ -30,7 +30,7 @@
     </div>
     <sec:ifLoggedIn>
         <div style="color: #FFFFFF;">
-            User: <sec:username/>
+           <span style="text-decoration: underline; font-weight: bold;">User:</span> <sec:username/>
         </div>
         &nbsp;&nbsp;
     <g:form controller="logout">
@@ -53,7 +53,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 98%;
+    width: 65%;
 }
 </style>
 </html>
