@@ -41,7 +41,7 @@
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.phonePatch">
                         <g:field type="text" name="employeeDevices.phonePatch" id="updatePhone" value="${employee.employeeDevices.phonePatch.format('dd/MM/yyyy')}" class="pick"/>
-                        <button id="phoneButton" type="button" class="btn btn-success">Patch Phone!</button>
+                        <button id="phoneButton" type="button" class="btn btn-primary">Patch Phone!</button>
                     </f:field>
                     <div style="text-align:center;">
                     </div>
@@ -53,7 +53,7 @@
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.laptopPatch">
                         <g:field type="text" name="employeeDevices.laptopPatch" id="updateLaptop" value="${employee.employeeDevices.laptopPatch.format('dd/MM/yyyy')}" class="pick"/>
-                        <button id="laptopButton" type="button" class="btn btn-success">Patch Laptop!</button>
+                        <button id="laptopButton" type="button" class="btn btn-primary">Patch Laptop!</button>
                     </f:field>
                 </fieldset>
                 <fieldset class="buttons">

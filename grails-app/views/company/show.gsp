@@ -19,12 +19,13 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="company" property="name"/>
+            <ol class="property-list">
+                <f:display bean="company" property="name"/>
             <f:display bean="company" property="countryCode"/>
             <g:each in="${this.company.employees}" var="e" status="i">
                 <g:text name="e${i}" value="${e.employee}"/>
             </g:each>
-
+            </ol>
             <g:form resource="${this.company}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.company}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

@@ -44,7 +44,7 @@ pre {
 
 }
 .navbar-dark, .navbar-static-top {
-    background-color: #424649;
+    background-color: #24527a;
     border: 0px;
 }
 a.navbar-brand {
@@ -1075,4 +1075,10 @@ html, body, .st-container, .st-pusher, .st-content {
     .presentations .img.screenshot, .video .metadata {
         float: none;
     }
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #5dacbd !important;
+    border-color: #5dacbd !important;
 }
