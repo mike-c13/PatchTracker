@@ -16,27 +16,49 @@
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header center">
-            <asset:image src="navbar.png" alt="Patch Tracker"/>
+<nav class="navbar navbar-expand-lg navbar-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/#">
+            <asset:image src="navbar.png" alt="Patch Tracker" class="img-fluid"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <g:link class="nav-link" controller="employee" action="create">New Employee</g:link>
+                </li>
+                <li class="nav-item">
+                    <g:link class="nav-link" controller="company" action="create">New Company</g:link>
+                </li>
+                <li class="nav-item" style="padding-right: 10px">
+                    <a class="nav-link" href="#" data-toggle="popover" data-html="true" data-placement="bottom"
+                       data-content="Mike Colgan<br /> mike_colgan@hotmail.com">Contact</a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <sec:ifNotLoggedIn>
+                    <g:form controller="login">
+                        <g:submitButton name="login" value="Login" class="btn-primary"/>
+                    </g:form>
+                </sec:ifNotLoggedIn>
+                <sec:ifLoggedIn>
+                    <div class="user">
+                        <span style="text-decoration: underline; font-weight: bold;">User:</span> <sec:username/>
+                    </div>
+                    <g:form controller="logout">
+                        <g:submitButton name="logout" value="Logout" class="btn-primary"/>
+                    </g:form>
+                </sec:ifLoggedIn>
+            </div>
         </div>
     </div>
-    <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarContent">
-        <ul class="nav navbar-nav ml-auto">
-            <g:pageProperty name="page.nav"/>
-        </ul>
-    </div>
-    <sec:ifLoggedIn>
-        <div style="color: #FFFFFF;">
-           <span style="text-decoration: underline; font-weight: bold;">User:</span> <sec:username/>
-        </div>
-        &nbsp;&nbsp;
-    <g:form controller="logout">
-        <g:submitButton name="logout" value="Logout" class="btn-primary"/>
-    </g:form>
-    </sec:ifLoggedIn>
 </nav>
 <g:layoutBody/>
 
@@ -46,14 +68,12 @@
 </div>
 
 <asset:javascript src="application.js"/>
-
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+            trigger: 'hover'
+        })
+    });
+</script>
 </body>
-<style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 65%;
-}
-</style>
 </html>

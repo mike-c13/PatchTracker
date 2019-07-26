@@ -1,0 +1,21 @@
+.navbar-dark, .navbar-static-top {
+    background-color: #24527a;
+    border: 0px;
+}
+.btn-primary{
+    color: #fff;
+    background-color: #5dacbd !important;
+    border-color: #5dacbd !important;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: #FFFFFF;
+}
+.user{
+    outline-style: double;
+    outline-color: #FFFFFF;
+    color: #FFFFFF;
+    margin-right: 10px;
+}
+body {
+    height: 100%;
+}
