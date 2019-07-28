@@ -29,6 +29,13 @@ class EmployeeController {
 
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def save(Employee employee) {
+
+        withForm {
+            log.info "successful employee save"
+        }.invalidToken {
+            message(error: "Double submit error")
+        }
+
         if (employee == null) {
             notFound()
             return
@@ -57,6 +64,13 @@ class EmployeeController {
 
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def update(Employee employee) {
+
+        withForm {
+            log.info "successful employee update"
+        }.invalidToken {
+            message(error: "Double submit error")
+        }
+
         if (employee == null) {
             notFound()
             return
@@ -80,6 +94,13 @@ class EmployeeController {
 
     @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
+
+        withForm {
+            log.info "successful employee delete"
+        }.invalidToken {
+            message(error: "Double submit error")
+        }
+
         if (id == null) {
             notFound()
             return

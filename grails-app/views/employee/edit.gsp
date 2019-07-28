@@ -27,7 +27,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.employee}" method="PUT">
+            <g:form useToken="true" resource="${this.employee}" method="PUT">
                 <g:hiddenField name="version" value="${this.employee?.version}" />
                 <fieldset class="form">
                     <f:field bean="employee" property="company">

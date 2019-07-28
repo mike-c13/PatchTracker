@@ -20,7 +20,7 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="employeeDevices" />
-            <g:form resource="${this.employeeDevices}" method="DELETE">
+            <g:form useToken="true" resource="${this.employeeDevices}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.employeeDevices}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                     <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />

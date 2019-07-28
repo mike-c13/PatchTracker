@@ -33,7 +33,7 @@
                 <g:formatDate format="dd/MM/yyyy" date="${value}"/>
             </f:display>
             </ol>
-            <g:form resource="${this.employee}" method="DELETE">
+            <g:form useToken="true" resource="${this.employee}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.employee}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                     <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />

@@ -14,16 +14,26 @@ class CompanyController {
         params.max = Math.min(max ?: 10, 100)
         respond companyService.list(params), model:[companyCount: companyService.count()]
     }
+
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def show(Long id) {
         respond companyService.get(id)
     }
+
     @Secured(['ROLE_ADMIN'])
     def create() {
         respond new Company(params)
     }
+
     @Secured(['ROLE_ADMIN'])
     def save(Company company) {
+
+        withForm {
+           log.info "successful company save"
+        }.invalidToken {
+            message(error: "Double submit error")
+        }
+
         if (company == null) {
             notFound()
             return
@@ -48,8 +58,16 @@ class CompanyController {
     def edit(Long id) {
         respond companyService.get(id)
     }
+
     @Secured(['ROLE_ADMIN'])
     def update(Company company) {
+
+        withForm {
+            log.info "successful company update"
+        }.invalidToken {
+            message(error: "Double submit error")
+        }
+
         if (company == null) {
             notFound()
             return
@@ -72,6 +90,13 @@ class CompanyController {
     }
     @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
+
+        withForm {
+            log.info "successful company delete"
+        }.invalidToken {
+            message(error: "Double submit error")
+        }
+
         if (id == null) {
             notFound()
             return

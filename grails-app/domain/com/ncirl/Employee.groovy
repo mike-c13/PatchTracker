@@ -11,6 +11,9 @@ class Employee {
     static belongsTo = [company: Company]
 
     static constraints = {
+        name maxSize: 25
+        email maxSize: 25
+        position maxSize: 25
         name()
         position()
         email()

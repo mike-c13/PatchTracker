@@ -25,7 +25,7 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.company}" method="POST">
+            <g:form useToken="true" resource="${this.company}" method="POST">
                 <fieldset class="form">
                     <f:field bean="company" property="name"/>
                     <f:field bean="company" property="countryCode"/>
