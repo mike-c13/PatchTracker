@@ -31,7 +31,7 @@ class EmployeeController {
     def save(Employee employee) {
 
         withForm {
-            log.info "successful employee save"
+            log.info "successful employee save - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
@@ -66,7 +66,7 @@ class EmployeeController {
     def update(Employee employee) {
 
         withForm {
-            log.info "successful employee update"
+            log.info "successful employee update - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
@@ -96,7 +96,7 @@ class EmployeeController {
     def delete(Long id) {
 
         withForm {
-            log.info "successful employee delete"
+            log.info "successful employee delete - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }

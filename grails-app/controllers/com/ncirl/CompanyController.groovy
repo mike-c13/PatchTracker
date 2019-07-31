@@ -4,6 +4,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
+
 class CompanyController {
 
     CompanyService companyService
@@ -29,7 +30,7 @@ class CompanyController {
     def save(Company company) {
 
         withForm {
-           log.info "successful company save"
+           log.info "successful company save - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
@@ -63,7 +64,7 @@ class CompanyController {
     def update(Company company) {
 
         withForm {
-            log.info "successful company update"
+            log.info "successful company update - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
@@ -92,7 +93,7 @@ class CompanyController {
     def delete(Long id) {
 
         withForm {
-            log.info "successful company delete"
+            log.info "successful company delete - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }

@@ -30,7 +30,7 @@ class EmployeeDevicesController {
     def save(EmployeeDevices employeeDevices) {
 
         withForm {
-            log.info "successful employeedevice save"
+            log.info "successful employeedevice save - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
@@ -65,7 +65,7 @@ class EmployeeDevicesController {
     def update(EmployeeDevices employeeDevices) {
 
         withForm {
-            log.info "successful employeedevice update"
+            log.info "successful employeedevice update - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
@@ -95,7 +95,7 @@ class EmployeeDevicesController {
     def delete(Long id) {
 
         withForm {
-            log.info "successful employeedevice delete"
+            log.info "successful employeedevice delete - " + principal.username
         }.invalidToken {
             message(error: "Double submit error")
         }
