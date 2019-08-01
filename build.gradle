@@ -19,6 +19,14 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
+apply plugin: 'codenarc'
+
+codenarc {
+    toolVersion = '0.27.0'
+    configFile = file("${rootProject.projectDir}/codenarc/rules.groovy")
+    reportFormat = 'html'
+    ignoreFailures = true
+}
 
 repositories {
     mavenLocal()
