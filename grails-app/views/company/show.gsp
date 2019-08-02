@@ -20,11 +20,9 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <ol class="property-list">
-                <f:display bean="company" property="name"/>
+            <f:display bean="company" property="name"/>
+            <br>
             <f:display bean="company" property="countryCode"/>
-            <g:each in="${this.company.employees}" var="e" status="i">
-                <g:text name="e${i}" value="${e.employee}"/>
-            </g:each>
             </ol>
             <g:form useToken="true" resource="${this.company}" method="DELETE">
                 <fieldset class="buttons">

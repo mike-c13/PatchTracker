@@ -34,6 +34,7 @@
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                    <g:link class="up" action="show" resource="${this.company}">Show/Delete</g:link>
                 </fieldset>
             </g:form>
         </div>
