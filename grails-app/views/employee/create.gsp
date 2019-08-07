@@ -38,7 +38,8 @@
                         <g:select name="employeeDevices.phone" value="${value}" from="${['iPhone', 'Samsung', 'Pixel']}"/>
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.phonePatch">
-                        <g:field name="employeeDevices.phonePatch" class="pick" type="text"/>
+                        <g:field type="text" name="employeeDevices.phonePatch" id="updatePhone" value="${value}" class="pick"/>
+                        <button id="phoneButton" type="button" class="btn btn-primary">Patch Phone!</button>
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.laptop">
                         <g:select name="employeeDevices.laptop" value="${value}" from="${['ASUS', 'Macbook', 'Toshiba']}"/>
@@ -47,7 +48,8 @@
                         <g:select name="employeeDevices.os" value="${value}" from="${['Windows 10', 'iOS', 'Ubuntu']}"/>
                     </f:field>
                     <f:field bean="employee" property="employeeDevices.laptopPatch">
-                        <g:field name="employeeDevices.phonePatch" class="pick" type="text"/>
+                        <g:field type="text" name="employeeDevices.laptopPatch" id="updateLaptop" value="${value}" class="pick"/>
+                        <button id="laptopButton" type="button" class="btn btn-primary">Patch Laptop!</button>
                     </f:field>
                 </fieldset>
                 <fieldset class="buttons">
@@ -56,4 +58,9 @@
             </g:form>
         </div>
     </body>
+<style>
+.btn{
+    float: right;
+}
+</style>
 </html>
