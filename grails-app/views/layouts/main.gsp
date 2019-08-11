@@ -39,7 +39,7 @@
                 </li>
                 <li class="nav-item" style="padding-right: 10px">
                     <a class="nav-link" href="#" data-toggle="popover" data-html="true" data-placement="bottom"
-                       data-content="Mike Colgan<br /> mike_colgan@hotmail.com">Contact</a>
+                       data-content="Mike Colgan<br /> XXXXXXX@hotmail.com">Contact</a>
                 </li>
             </ul>
             <div class="form-inline my-2 my-lg-0">
